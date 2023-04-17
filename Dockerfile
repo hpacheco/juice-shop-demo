@@ -1,37 +1,20 @@
-FROM node:18 as installer
+FROM --platform=amd64 node:19
 COPY . /juice-shop
 WORKDIR /juice-shop
-RUN npm i -g typescript ts-node
-RUN npm install --omit=dev --unsafe-perm
-RUN npm dedupe
-RUN rm -rf frontend/node_modules
-RUN rm -rf frontend/.angular
-RUN rm -rf frontend/src/assets
-RUN mkdir logs
-RUN chown -R 65532 logs
-RUN chgrp -R 0 ftp/ frontend/dist/ logs/ data/ i18n/
-RUN chmod -R g=u ftp/ frontend/dist/ logs/ data/ i18n/
-RUN rm data/chatbot/botDefaultTrainingData.json || true
-RUN rm ftp/legal.md || true
-RUN rm i18n/*.json || true
-
-FROM gcr.io/distroless/nodejs:18
-ARG BUILD_DATE
-ARG VCS_REF
-LABEL maintainer="Bjoern Kimminich <bjoern.kimminich@owasp.org>" \
-    org.opencontainers.image.title="OWASP Juice Shop" \
-    org.opencontainers.image.description="Probably the most modern and sophisticated insecure web application" \
-    org.opencontainers.image.authors="Bjoern Kimminich <bjoern.kimminich@owasp.org>" \
-    org.opencontainers.image.vendor="Open Web Application Security Project" \
-    org.opencontainers.image.documentation="https://help.owasp-juice.shop" \
-    org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.version="14.5.1" \
-    org.opencontainers.image.url="https://owasp-juice.shop" \
-    org.opencontainers.image.source="https://github.com/juice-shop/juice-shop" \
-    org.opencontainers.image.revision=$VCS_REF \
-    org.opencontainers.image.created=$BUILD_DATE
-WORKDIR /juice-shop
-COPY --from=installer --chown=65532:0 /juice-shop .
-USER 65532
+RUN npm install
+RUN apt update && apt install -y systemctl apache2 php libapache2-mod-php php-mysql
+RUN a2enmod mpm_prefork && a2enmod php7.4
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_RUN_DIR /var/www/html
+RUN echo 'Hello, docker' > /var/www/index.html
+COPY shake-logger/shake.js shake-logger/logger.php /var/www/html/
 EXPOSE 3000
-CMD ["/juice-shop/build/app.js"]
+EXPOSE 80
+ENV NODE_ENV=unsafe
+ENV TARGET_SOCKET=localhost:8080
+RUN echo "#! /bin/bash" >> ./startup.sh
+RUN echo "service apache2 restart" >> ./startup.sh
+RUN echo "node /juice-shop/build/app.js" >> ./startup.sh
+CMD ["/bin/bash","-c","./startup.sh"]

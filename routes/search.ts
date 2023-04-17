@@ -10,18 +10,25 @@ import { UserModel } from '../models/user'
 const utils = require('../lib/utils')
 const challengeUtils = require('../lib/challengeUtils')
 const challenges = require('../data/datacache').challenges
+const { performance } = require('perf_hooks');
 
 class ErrorWithParent extends Error {
   parent: Error | undefined
 }
 
+function isVisible(element, index, array) { 
+   return (element.deletedAt == null); 
+} 
+
 // vuln-code-snippet start unionSqlInjectionChallenge dbSchemaChallenge
 module.exports = function searchProducts () {
   return (req: Request, res: Response, next: NextFunction) => {
+    var startTime = performance.now()
     let criteria: any = req.query.q === 'undefined' ? '' : req.query.q ?? ''
     criteria = (criteria.length <= 200) ? criteria : criteria.substring(0, 200)
-    models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR description LIKE '%${criteria}%') AND deletedAt IS NULL) ORDER BY name`) // vuln-code-snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge
-      .then(([products]: any) => {
+    models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR description LIKE '%${criteria}%') ) ORDER BY name`) // vuln-code-snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge
+    //models.sequelize.query(`SELECT * FROM Products WHERE ((name LIKE '%${criteria}%' OR description LIKE '%${criteria}%') AND deletedAt IS NULL) ORDER BY name`) // vuln-code-snippet vuln-line unionSqlInjectionChallenge dbSchemaChallenge
+      .then(async ([products]: any) => {
         const dataString = JSON.stringify(products)
         if (challengeUtils.notSolved(challenges.unionSqlInjectionChallenge)) { // vuln-code-snippet hide-start
           let solved = true
@@ -64,7 +71,12 @@ module.exports = function searchProducts () {
         for (let i = 0; i < products.length; i++) {
           products[i].name = req.__(products[i].name)
           products[i].description = req.__(products[i].description)
+          var delay = "SEARCH_DELAY" in process.env ? Number(process.env["SEARCH_DELAY"]) : 20
+          await new Promise(r => setTimeout(r, delay));
         }
+        products = products.filter(isVisible)
+        var endTime = performance.now()
+        res.set('X-Runtime', endTime - startTime);
         res.json(utils.queryResultToJson(products))
       }).catch((error: ErrorWithParent) => {
         next(error.parent)
