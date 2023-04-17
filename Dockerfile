@@ -1,4 +1,4 @@
-FROM --platform=amd64 node:19
+FROM node:19
 COPY . /juice-shop
 WORKDIR /juice-shop
 RUN npm install
