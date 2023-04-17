@@ -17,4 +17,5 @@ ENV TARGET_SOCKET=localhost:8080
 RUN echo "#! /bin/bash" >> ./startup.sh
 RUN echo "service apache2 restart" >> ./startup.sh
 RUN echo "node /juice-shop/build/app.js" >> ./startup.sh
+RUN chmod +x ./startup.sh
 CMD ["/bin/bash","-c","./startup.sh"]
