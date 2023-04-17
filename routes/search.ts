@@ -76,7 +76,7 @@ module.exports = function searchProducts () {
         }
         products = products.filter(isVisible)
         var endTime = performance.now()
-        res.set('X-Runtime', endTime - startTime);
+        res.set('X-Runtime', (endTime - startTime) / 1000);
         res.json(utils.queryResultToJson(products))
       }).catch((error: ErrorWithParent) => {
         next(error.parent)
