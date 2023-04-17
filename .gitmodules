@@ -1,3 +1,0 @@
-[submodule "shake-logger"]
-	path = shake-logger
-	url = https://github.com/wurstbrot/shake-logger
