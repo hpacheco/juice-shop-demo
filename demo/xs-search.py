@@ -37,7 +37,7 @@ search = lambda q : searchProductRuntime(q,args.n) if args.t == "runtime" else s
 q = args.QUERY
 if args.nextchar:
     findNextChar(q,search)
-elif "length" in args:
+elif args.length:
     i,j = args.length
     findLength(q,i,j,search)
 else:
