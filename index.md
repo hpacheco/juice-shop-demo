@@ -13,7 +13,7 @@ sudo apt-get -y install python3-pip
 pip3 install requests statistics argparse
 ```
 
-Install Google Chrome and its [WebSpy](https://chrome.google.com/webstore/detail/webspy-explore-and-test-w/aedipmheomnpcbgmanofhaccebgapije?hl=en) extension.
+Install [Google Chrome](https://www.google.com/chrome/) and its [WebSpy](https://chrome.google.com/webstore/detail/webspy-explore-and-test-w/aedipmheomnpcbgmanofhaccebgapije?hl=en) extension.
 
 ## FAQ
 
