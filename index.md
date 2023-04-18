@@ -15,6 +15,8 @@ pip3 install requests statistics argparse
 
 Install [Google Chrome](https://www.google.com/chrome/) and its [WebSpy](https://chrome.google.com/webstore/detail/webspy-explore-and-test-w/aedipmheomnpcbgmanofhaccebgapije?hl=en) extension.
 
+Open the Juice Shop website (http://localhost:3000) with Chrome.
+
 ## FAQ
 
 * For multiple demos, killing and relaunching the docker container shall reset all progress.
