@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Setup
+# Setup :cd:
 
 Configure and run a custom docker-based instance of juice-shop:
 
@@ -17,12 +17,12 @@ Install [Google Chrome](https://www.google.com/chrome/) and its [WebSpy](https:/
 
 Open the locally-hosted Juice Shop website (http://localhost:3000) with Chrome.
 
-## FAQ
+## FAQ :scroll:
 
 * For multiple demos, killing and relaunching the docker container shall reset all progress.
 * If the timing delays in the timing attack demo are not noticeable, you may increase the delay in milliseconds for each product search by setting the flag `SEARCH_DELAY` before launching the container, e.g. `export SEARCH_DELAY=100` sets the delay to 100ms. 
 
-# Examples
+# Examples :rocket:
 
 You can demonstrate these in order, or select a few at will.
 
