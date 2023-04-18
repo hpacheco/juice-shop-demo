@@ -40,7 +40,7 @@ This challenge serves to explain the structure web pages and to demonstrate how 
 </details>
 <p></p>
 
-## XSS :trollface: demo
+## XSS :link: demo
 
 <details>
 <summary>More info</summary>
