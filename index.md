@@ -26,7 +26,7 @@ Open the locally-hosted Juice Shop website (http://localhost:3000) with Chrome.
 
 You can demonstrate these in order, or select a few at will.
 
-## Score Board :star: challenge
+## Score Board challenge :star:
 
 <details>
 <summary>More info</summary>
@@ -40,7 +40,7 @@ This challenge serves to explain the structure web pages and to demonstrate how 
 </details>
 <p></p>
 
-## XSS :link: demo
+## XSS demo :link:
 
 <details>
 <summary>More info</summary>
@@ -54,7 +54,7 @@ Showcase the XSS demo (more detailed instructions [here](https://pwning.owasp-ju
 </details>
 <p></p>
 
-## Zero Stars :star: challenge
+## Zero Stars challenge :star:
 
 <details>
 <summary>More info</summary>
@@ -68,7 +68,7 @@ Then show how to submit a zero-star review:
 </details>
 <p></p>
 
-## Timing attack :hourglass_flowing_sand: demo
+## Timing attack demo :hourglass_flowing_sand:
 
 <details>
 <summary>More info</summary>
@@ -147,7 +147,7 @@ You can repeat this process 35 times. The name of the actual hidden product is `
 </details>
 <p></p>
 
-## Confidential Document :star: challenge
+## Confidential Document challenge :star:
 
 <details>
 <summary>More info</summary>
@@ -158,7 +158,7 @@ You can repeat this process 35 times. The name of the actual hidden product is `
 </details>
 <p></p>
 
-## DOM XSS :star: challenge
+## DOM XSS challenge :star:
 
 <details>
 <summary>More info</summary>
@@ -167,7 +167,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-## Reflected XSS :star: :star: challenge
+## Reflected XSS challenge :star: :star:
 
 <details>
 <summary>More info</summary>
@@ -179,7 +179,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-## Admin Registration :star: :star: :star: challenge
+## Admin Registration challenge :star: :star: :star:
 
 <details>
 <summary>More info</summary>
@@ -190,7 +190,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-## Admin Section :star: :star: challenge
+## Admin Section challenge :star: :star:
 
 <details>
 <summary>More info</summary>
@@ -201,7 +201,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-## Forged Review :star: :star: :star: challenge
+## Forged Review challenge :star: :star: :star:
 
 <details>
 <summary>More info</summary>
@@ -211,7 +211,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-## Forged Feedback :star: :star: :star: challenge
+## Forged Feedback challenge :star: :star: :star:
 
 <details>
 <summary>More info</summary>
@@ -221,7 +221,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-##  View Basket :star: :star: challenge
+##  View Basket challenge :star: :star:
 
 <details>
 <summary>More info</summary>
@@ -231,7 +231,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 </details>
 <p></p>
 
-## Login Admin :star: :star: challenge
+## Login Admin challenge :star: :star:
 
 <details>
 <summary>More info</summary>
