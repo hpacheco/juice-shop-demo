@@ -40,7 +40,7 @@ This challenge serves to explain the structure web pages and to demonstrate how 
 </details>
 <p></p>
 
-## XSS demo
+## XSS :trollface: demo
 
 <details>
 <summary>More info</summary>
@@ -68,7 +68,7 @@ Then show how to submit a zero-star review:
 </details>
 <p></p>
 
-## Timing attack demo
+## Timing attack :hourglass_flowing_sand: demo
 
 <details>
 <summary>More info</summary>
