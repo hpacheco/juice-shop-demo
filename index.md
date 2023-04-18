@@ -13,6 +13,8 @@ sudo apt-get -y install python3-pip
 pip3 install requests statistics argparse
 ```
 
+For multiple demos, killing and relaunching the docker container shall reset all progress.
+
 Install Google Chrome and its [WebSpy](https://chrome.google.com/webstore/detail/webspy-explore-and-test-w/aedipmheomnpcbgmanofhaccebgapije?hl=en) extension.
 
 # Examples
@@ -31,6 +33,7 @@ This challenge serves to demonstrate how Juice Shop challenges work:
 3. You will find the `score-board` as a `path` defined in file `main.js`. Go to the page `http://localhost:3000/#/score-board`.
 4. When you solve a Juice Shop challenge, the site will greet you with a green notification.
 </details>
+<p></p>
 
 ## XSS demo
 
@@ -44,6 +47,7 @@ Showcase the XSS demo (more detailed instructions [here](https://pwning.owasp-ju
 3. Login as an existing user and see that the credentials are being recorded to the keylogger.
 4. Refresh the web page to unload the attack script.
 </details>
+<p></p>
 
 ## Zero Stars :star: challenge
 
@@ -57,7 +61,7 @@ Then show how to submit a zero-star review:
 2. You may check that your comment actually appears in the *About Us* page.
 3. Replay a similar request with WebSpy, this time with `rating:0`. 
 </details>
-
+<p></p>
 
 ## Timing attack demo
 
@@ -136,6 +140,7 @@ It seems that `s` takes longer (actually, the same as the `_` wildcard which alw
 You can repeat this process 35 times. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`.
 
 </details>
+<p></p>
 
 ## Confidential Document :star: challenge
 
@@ -146,6 +151,7 @@ You can repeat this process 35 times. The name of the actual hidden product is `
 2. Replay the request with WebSpy to list the parent directory (`/ftp/`).
 3. Find the `acquisitions.md` file in the response a get the confidential file (`/ftp/acquisitions.md`)..
 </details>
+<p></p>
 
 ## DOM XSS :star: challenge
 
@@ -154,6 +160,7 @@ You can repeat this process 35 times. The name of the actual hidden product is `
 
 Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`) in the search field. You will see a XSS popup.
 </details>
+<p></p>
 
 ## Reflected XSS :star: :star: challenge
 
@@ -165,6 +172,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 3. The link of your product's order information will have the structure `/#/track-result/new?id=7cb0-dd30e23740d08c54`
 3. Attack the orders search feature by replacing your order id with the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`). You may need to refresh the page for the script to be actually executed.
 </details>
+<p></p>
 
 ## Admin Registration :star: :star: :star: challenge
 
@@ -175,6 +183,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 2. Inspect the fields of the response, you shall see a field `role: customer`
 3. Replay the request with `role:admin` to register a new user with admin privileges. Make sure to register a new user; registering a repeated user issues an error.
 </details>
+<p></p>
 
 ## Admin Section :star: :star: challenge
 
@@ -185,6 +194,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 2. Find the admin page by inspecting the HTML and JavaScript using the Developer Tools.
 3. You will find the `administration` page as a `path` defined in file `main.js`.
 </details>
+<p></p>
 
 ## Forged Review :star: :star: :star: challenge
 
@@ -194,6 +204,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 1. Submit a new review for some product, while logged in, and replay it with WebSpy.
 2. Try changing the author information (the `author` field in the request is just a string, the user doesn't even need to be valid).
 </details>
+<p></p>
 
 ## Forged Feedback :star: :star: :star: challenge
 
@@ -203,6 +214,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 1. Submit a new comment in the *Customer Feedback* page, while logged in, and replay it with WebSpy.
 2. Try changing the user information (changing the `UserId` field to some other random user id, e.g. `1`; the user's name in the comment is just a string unrelated to the actual user id).
 </details>
+<p></p>
 
 ##  View Basket :star: :star: challenge
 
@@ -212,6 +224,7 @@ Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`
 1. View your basket and replay the request with WebSpy for a different user. You may notice that the user id appears in the request link (`/rest/basket/<id>`).
 2. Replay the request with WebSpy for some other user id (e.g., `1`).
 </details>
+<p></p>
 
 ## Login Admin :star: :star: challenge
 
@@ -225,6 +238,7 @@ You can also try to break authentication by demonstrating how SQL injection work
 3. Go to the login page and demonstrate the SQL injection by typing `admin@juice-sh.op' --` in the `username` field and anything in the `password` field.
 4. You may confirm that this user actually has administrator privileges by going to the `/#/administration` page.
 </details>
+<p></p>
 
 
 

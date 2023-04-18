@@ -3,4 +3,6 @@ description: OWASP Juice Shop Web Attacks Demo
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-hacker
-markdown: GFM
+markdown: kramdown
+kramdown:
+  input: GFM
