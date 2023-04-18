@@ -73,7 +73,7 @@ Then show how to submit a zero-star review:
 <details>
 <summary>More info</summary>
 
-This is a demo on how subtle timing differences may allow us to recover hidden information. This is not an actual Juice Shop challenge, but is inspired by the Christmas Special :star: :star: challenge.
+This is a demo on how subtle timing differences may allow us to recover hidden information. This is not an actual Juice Shop challenge, but is inspired by the Christmas Special challenge :star: :star:.
 
 1. Open up WebSpy and find the backend search request. You may notice that, independently of the search query in the frontend, the backend requests is always `/rest/products/search?q=` with an empty query. (Product filtering is happening by default in the JS side.)
 2. You can nonetheless replay the request and fill in the `q` argument with your own search term.
@@ -140,7 +140,7 @@ christmas_s 0.029131466499995443
 christmas__ 0.028724410000257196
 ```
 
-It seems that `s` takes longer (actually, the same as the `_` wildcard which alwayas matches), hence the word `christmas_s` is in the name of our product.
+It seems that `s` takes longer (actually, the same as the `_` wildcard which always matches), hence the word `christmas_s` is in the name of our product.
 
 You can repeat this process 35 times. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`.
 
@@ -163,7 +163,8 @@ You can repeat this process 35 times. The name of the actual hidden product is `
 <details>
 <summary>More info</summary>
 
-Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`) in the search field. You will see a XSS popup.
+1. Paste the JS script from the challenge (`<iframe src="javascript:alert(`xss`)">`) in the search field.
+2. You will immediately see a XSS popup.
 </details>
 <p></p>
 
