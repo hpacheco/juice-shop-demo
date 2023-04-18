@@ -13,9 +13,12 @@ sudo apt-get -y install python3-pip
 pip3 install requests statistics argparse
 ```
 
-For multiple demos, killing and relaunching the docker container shall reset all progress.
-
 Install Google Chrome and its [WebSpy](https://chrome.google.com/webstore/detail/webspy-explore-and-test-w/aedipmheomnpcbgmanofhaccebgapije?hl=en) extension.
+
+**FAQ:**
+
+* For multiple demos, killing and relaunching the docker container shall reset all progress.
+* If the timing delays in the timing attack demo are not noticeable, you may increase the delay in milliseconds for each product search by setting the flag `SEARCH_DELAY` before launching the container, e.g. `export SEARCH_DELAY=100` sets the delay to 100ms. 
 
 # Examples
 
