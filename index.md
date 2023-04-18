@@ -31,7 +31,7 @@ You can demonstrate these in order, or select a few at will.
 <details>
 <summary>More info</summary>
 
-This challenge serves to explain the structure web pages and to demonstrate how Juice Shop challenges work:
+This challenge serves to explain the structure of web pages and to demonstrate how Juice Shop challenges work:
 
 1. Explain how to use the browser's Developer Tools.
 2. Then show how to find the score-board by inspecting the HTML and JavaScript code of the frontpage.
