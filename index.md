@@ -135,6 +135,7 @@ It seems that `s` takes longer (actually, the same as the `_` wildcard which alw
 
 You can repeat this process 35 times. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`.
 
+</details>
 
 ## Confidential Document :star: challenge
 
