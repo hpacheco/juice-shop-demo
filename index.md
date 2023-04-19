@@ -142,7 +142,7 @@ christmas__ 0.028724410000257196
 
 It seems that `s` takes longer (actually, the same as the `_` wildcard which always matches), hence the word `christmas_s` is in the name of our product.
 
-You can repeat this process 35 times. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`.
+You can repeat this process 35 times. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`. We are not trying to find all the characters to avoid searching a larger character space and to avoid mentioning special HTML character encodings.
 
 </details>
 <p></p>
