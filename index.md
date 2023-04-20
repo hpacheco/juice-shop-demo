@@ -75,10 +75,10 @@ Then show how to submit a zero-star review:
 
 This is a demo on how subtle timing differences may allow us to recover hidden information. This is not an actual Juice Shop challenge, but is inspired by the Christmas Special challenge :star: :star:.
 
-1. Open up WebSpy and find the backend search request. You may notice that, independently of the search query in the frontend, the backend requests is always `/rest/products/search?q=` with an empty query. (Product filtering is happening by default in the JS side.)
+1. Open up WebSpy and find the backend search request. You may notice that, independently of the search query in the frontend, the backend request is always `/rest/products/search?q=` with an empty query. (Product filtering is happening by default in the JS side.)
 2. You can nonetheless replay the request and fill in the `q` argument with your own search term.
 3. This is particularly interesting for search terms for which there are **no apparent** products. For example, the Christmas Special challenge invites us to search for an hidden *Christmas special offer of 2014*. We can use WebSpy to search for two different terms such as `christmas` and `personal`; they both return an empty match, but is there a noticeable difference in the time of the request? It does seem so...
-4. After all the server may take an arbitrary time to respond. We can further support our suspicions by repeating the same requests multiple times and checking if there is still a significant difference in the average times. Download this Python [script](demo/xs-search.py) to automate the search. Then run the script for our two search terms; you shall get something like this:
+4. After all, the server may take an arbitrary time to respond. We can further support our suspicions by repeating the same requests multiple times and checking if there is still a significant difference in the average times. Download this Python [script](demo/xs-search.py) to automate the search. Then run the script for our two search terms; you shall get something like this:
 
 ```
 % python3 xs-search.py christmas
@@ -98,14 +98,13 @@ christmas 0.007031379100000438
 
 Why does `christmas` take longer than `personal`? Probably because the server is taking more time to compare the search term and prepare the results for products that exist, than for products that do not exist.
 
-5. There does seem to exist some product with the word `christmas` in its name. How can we find its full name? We need to find more characters before and/or after the word `christmas`. An idea is to attempt several characters, and check if there is a measurable time difference. In the script, we are trying characters from `a` to `z` and from `0` to `9`; other special characters are captured by the `_` wildcard. We can configure this to search for a characters before or after:
+5. There does seem to exist some product with the word `christmas` in its name. How can we find its full name? We need to find more characters before and/or after the word `christmas`. An idea is to attempt several characters, and check if there is a measurable time difference. In the script, we are trying characters from `a` to `z` and from `0` to `9`; other special characters are captured by the `_` wildcard. We can configure this to search for a character before or after:
 
 ```
 % python3 xs-search.py christmas --nextchar before
 Namespace(QUERY='christmas', n=10, t='runtime', nextchar='before', host='localhost:3000')
-christmasa 0.013191999999980908
-...
-christmas0 0.005347312500001863
+christmasa 0.006191999999980908
+christmasb 0.005347312500001863
 ...
 christmas_ 0.004923229000007268
 ```
@@ -121,7 +120,7 @@ christmasb 0.008309272999875248
 christmas_ 0.029330530500039458
 ```
 
-It seems that the `_` wildcard takes longer, hence the next character after `christmas` is neither a letter nor a number, but it does exist.
+It seems that the `_` wildcard takes longer, hence the next character after `christmas` is neither a letter nor a number, but it does seem to exist.
 
 We can repeat this process one character at a time:
 
