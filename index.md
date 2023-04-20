@@ -82,7 +82,7 @@ This is a demo on how subtle timing differences may allow us to recover hidden i
 
 ```
 % python3 xs-search.py christmas
-Namespace(QUERY='christmas', n=10, t='runtime', nextchar=False, length=None, host=['localhost:3000'])
+Namespace(QUERY='christmas', n=10, t='runtime', nextchar=None, host=['localhost:3000'])
 <Response [200]>
 {"status":"success","data":[]}
 christmas 0.03077825400000438
@@ -90,7 +90,7 @@ christmas 0.03077825400000438
 
 ```
 % python3 xs-search.py personal
-Namespace(QUERY='personal', n=10, t='runtime', nextchar=False, length=None, host=['localhost:3000'])
+Namespace(QUERY='personal', n=10, t='runtime', nextchar=None, host=['localhost:3000'])
 <Response [200]>
 {"status":"success","data":[]}
 christmas 0.007031379100000438
@@ -98,41 +98,36 @@ christmas 0.007031379100000438
 
 Why does `christmas` take longer than `personal`? Probably because the server is taking more time to compare the search term and prepare the results for products that exist, than for products that do not exist.
 
-5. There does seem to exist some product with the word `christmas` in its name. How can we find its full name? We can start by trying to find the length of the name, not its exact characters. This is possible because the search feature supports a special `_` character wildcard. We just try to append some number of `_` after the word `christmas` (the min and max are adjustable):
+5. There does seem to exist some product with the word `christmas` in its name. How can we find its full name? We need to find more characters before and/or after the word `christmas`. An idea is to attempt several characters, and check if there is a measurable time difference. In the script, we are trying characters from `a` to `z` and from `0` to `9`; other special characters are captured by the `_` wildcard. We can configure this to search for a characters before or after:
 
 ```
-% python3 xs-search.py christmas --length 30 40
-Namespace(QUERY='christmas', n=10, t='runtime', nextchar=False, length=[30, 40], host=['localhost:3000'])
-christmas 30 0.029176039000041783
-christmas 31 0.02855586099997163
-christmas 32 0.02822081399941817
-christmas 33 0.029214259500149636
-christmas 34 0.029317782500293106
-christmas 35 0.006840303499717265
-christmas 36 0.006761338000651449
-christmas 37 0.00686634499952197
-christmas 38 0.006910367999691516
-christmas 39 0.006873979499563575
+% python3 xs-search.py christmas --nextchar before
+Namespace(QUERY='christmas', n=10, t='runtime', nextchar='before', host='localhost:3000')
+christmasa 0.013191999999980908
+...
+christmas0 0.005347312500001863
+...
+christmas_ 0.004923229000007268
 ```
 
-You may notice that the timing drops precisely at 35 and onwards. This suggests that our christmas product includes the name `christmas` followed by 35 other characters.
-
-6. Now, how do we find the exact name? An idea is to attempt several characters, and check if there is a measurable time difference. In the script, we are trying characters from `a` to `z` and from `0` to `9`; other special characters are captured by the `_` wildcard. We can repeat this process one character at a time:
+All characters seem to take roughly the same amount of time. This suggests that there is no character appearing before `christmas` in our hidden product.
 
 ```
-% python3 xs-search.py christmas -nextchar
-Namespace(QUERY='christmas', n=10, t='runtime', nextchar=True, length=None, host=['localhost:3000'])
+% python3 xs-search.py christmas -nextchar after
+Namespace(QUERY='christmas', n=10, t='runtime', nextchar='after', host=['localhost:3000'])
 christmasa 0.008081472499761731
 christmasb 0.008309272999875248
 ...
 christmas_ 0.029330530500039458
 ```
 
-It seems that the `_` wildcard takes longer, hence the next character after `christmas` is neither a letter nor a number. 
+It seems that the `_` wildcard takes longer, hence the next character after `christmas` is neither a letter nor a number, but it does exist.
+
+We can repeat this process one character at a time:
 
 ```
-% python3 xs-search.py christmas_ --nextchar
-Namespace(QUERY='christmas_', n=10, t='runtime', nextchar=True, length=None, host=['localhost:3000'])
+% python3 xs-search.py christmas_ --nextchar after
+Namespace(QUERY='christmas_', n=10, t='runtime', nextchar='after', host=['localhost:3000'])
 christmas_a 0.006253162499982864
 ...
 christmas_s 0.029131466499995443
@@ -142,7 +137,7 @@ christmas__ 0.028724410000257196
 
 It seems that `s` takes longer (actually, the same as the `_` wildcard which always matches), hence the word `christmas_s` is in the name of our product.
 
-You can repeat this process 35 times. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`. We are not trying to find all the characters to avoid searching a larger character space and to avoid mentioning special HTML character encodings.
+You can repeat this process 35 times, until a new specific character cannot be singled out. The name of the actual hidden product is `Christmas Super-Surprise-Box (2014 Edition)`. We are not trying to find all the characters to avoid searching a larger character space and to avoid mentioning special HTML character encodings.
 
 </details>
 <p></p>
