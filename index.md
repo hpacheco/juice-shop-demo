@@ -42,7 +42,7 @@ This challenge serves to explain the structure of web pages and to demonstrate h
 <p></p>
 
 <details>
-<summary>Questions 	:question: </summary>
+<summary>Questions</summary> :question:
 
 1. Which is the link to the scoreboard?
 2. Is it secure to hide information in a web page?
