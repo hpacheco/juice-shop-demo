@@ -9,7 +9,7 @@ Configure and run a custom docker-based instance of juice-shop:
 ```
 sudo docker run -ti --init --rm  -p 3000:3000 -p 8080:80 hugopacheco/juice-shop-demo
 
-# only required for the Timing attack demo
+# python only required for the Timing attack demo
 sudo apt-get -y install python3-pip
 pip3 install requests statistics argparse
 ```
@@ -38,6 +38,14 @@ This challenge serves to explain the structure of web pages and to demonstrate h
 2. Then show how to find the score-board by inspecting the HTML and JavaScript code of the frontpage.
 3. You will find the `score-board` as a `path` defined in file `main.js`. Go to the page `http://localhost:3000/#/score-board`.
 4. When you solve a Juice Shop challenge, the site will greet you with a green notification.
+</details>
+<p></p>
+
+<details>
+<summary>Questions 	:question: </summary>
+
+1. Which is the link to the scoreboard?
+2. Is it secure to hide information in a web page?
 </details>
 <p></p>
 
