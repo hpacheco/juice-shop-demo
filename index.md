@@ -9,6 +9,7 @@ Configure and run a custom docker-based instance of juice-shop:
 ```
 sudo docker run -ti --init --rm  -p 3000:3000 -p 8080:80 hugopacheco/juice-shop-demo
 
+# only required for the Timing attack demo
 sudo apt-get -y install python3-pip
 pip3 install requests statistics argparse
 ```
