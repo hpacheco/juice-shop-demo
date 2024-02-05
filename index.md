@@ -20,7 +20,7 @@ Open the locally-hosted Juice Shop website (http://localhost:3000) with Chrome.
 
 ## FAQ :scroll:
 
-* For multiple demos, killing and relaunching the docker container shall reset all progress.
+* For multiple demos, delete the browser cookies in the score-board, and relaunch the docker container to reset all progress.
 * If the timing delays in the timing attack demo are not noticeable, you may increase the delay in milliseconds for each product search by setting the flag `SEARCH_DELAY` before launching the container, e.g. `export SEARCH_DELAY=100` sets the delay to 100ms. 
 
 # Examples :rocket:
@@ -70,8 +70,8 @@ Then show how to submit a zero-star review:
 <details>
 <summary>Questions</summary>
 
-1. Which is the link to the scoreboard?
-2. Is it secure to hide information in a web page? :man_technologist:
+1. How does a web browser communicate with a web server?
+2. Is it secure for a web server to trust incoming requests? :man_technologist:
 </details>
 <p></p>
 
